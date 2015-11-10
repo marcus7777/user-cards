@@ -8,11 +8,13 @@
 <dom-module id="cards-item">
   <template>
     <template is="dom-if" if="{{edit}}">
-      <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
-      <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
-      <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
-      <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
-      <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+      <paper-material>
+        <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
+        <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
+        <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
+        <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
+        <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+      </paper-material>
     </template>
     <template is="dom-if" if="{{!edit}}">
       <paper-material style="background:#fff;padding:20px;margin:5px;max-width:250px">
