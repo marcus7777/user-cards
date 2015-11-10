@@ -1,12 +1,14 @@
 <link rel="import" href="cards-item.html">
 <link rel="import" href="../sortable-list/sortable-list.html">
+<link rel="import" href="../paper-filter/paper-filter.html">
 <!--
 `<cards-list cards="{{cards}}" on-delete-cards="deletecards"></cards-list>`
 -->
 <dom-module id="cards-list">
   <template>
+    <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
     <sortable-list style="display: inline-block">
-      <template is="dom-repeat" items="{{cards}}">
+      <template is="dom-repeat" items="{{cards}}" filter="{{filterCards(output)}}>
         <div><cards-item index="[[index]]" edit="[[edit]]" cards="{{item}}"></cards-item></div>
       </template>
     </sortable-list>
@@ -18,6 +20,12 @@
     properties: {
       edit:{type: Boolean, value: false},
       cards:{notify:true}
+    },
+    filterCards: function(output) {
+      var filteredOutput = output
+      return function(item) {
+        return output.indexOf(item) !== -1
+      }
     }
   });
 </script>
