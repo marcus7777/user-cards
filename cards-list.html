@@ -27,12 +27,6 @@
     properties: {
       edit:{type: Boolean, value: false},
       cards:{notify:true}
-    },
-    filterCards: function(output) {
-      var filteredOutput = output
-      return function(item) {
-        return filteredOutput.indexOf(item) !== -1
-      }
     }
   });
 </script>
