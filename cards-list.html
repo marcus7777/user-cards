@@ -9,7 +9,7 @@
     <template is="dom-if" if="{{!edit}}">
       <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
       <template is="dom-repeat" items="{{output}}">
-        <cards-item style="display: inline-block" cards="{{item}}"></cards-item>
+        <cards-item cards="{{item}}"></cards-item>
       </template>
     </template>
     <template is="dom-if" if="{{edit}}">
