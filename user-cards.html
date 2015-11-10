@@ -14,7 +14,7 @@
     <cards-view location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
     <template is="dom-if" if="{{editDefault}}">
       <h3>Edit Default Set:</h3>
-      <user-cards edit location="[[location]]" folder="[[defaultFolder]]"></user-cards>
+      <user-cards edit="true" location="[[location]]" folder="[[defaultFolder]]"></user-cards>
     </template>
   </template>
 </dom-module>
