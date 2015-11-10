@@ -1,37 +1,37 @@
-<link rel="import" href="help-list.html">
-<link rel="import" href="help-input.html">
+<link rel="import" href="cards-list.html">
+<link rel="import" href="cards-input.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../mediator-data/mediator-data.html">
 <!--
-`<help-view location="[[location]]" edit="{{edit}}" folder="[[helpFolder]]" default-folder="{{helpDefaultFolder}}" edit-default="{{editDefault}}"></help-view>`
+`<cards-view location="[[location]]" edit="{{edit}}" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>`
 -->
 
-<dom-module id="help-view">
+<dom-module id="cards-view">
   <template>
-    <mediator-data id="c" as-array="{{help}}" location="{{location}}" folder="[[folder]]" default-folder="{{defaultFolder}}"></mediator-data>
-    <help-list edit="[[edit]]" edit-default="[[editDefault]]" help="{{help}}" on-delete-help="deletehelpQuestion"></help-list>
+    <mediator-data id="c" as-array="{{cards}}" location="{{location}}" folder="[[folder]]" default-folder="{{defaultFolder}}"></mediator-data>
+    <cards-list edit="[[edit]]" edit-default="[[editDefault]]" cards="{{cards}}" on-delete-cards="deletecardsQuestion"></cards-list>
     <template is="dom-if" if="{{editDefault}}">
       Add:
-      <help-input on-add-help="addhelpQuestion"></help-input>
+      <cards-input on-add-cards="addcardsQuestion"></cards-input>
     </template>
   </template>
 </dom-module>
 <script>
   Polymer({
-    is: "help-view",
+    is: "cards-view",
     properties: {
-      help: Array,
+      cards: Array,
       edit: Boolean,
       editDefault: Boolean
     },
-    addhelpQuestion: function(e) {
+    addcardsQuestion: function(e) {
       this.$.c.push({
         question: e.detail.Q,
         answer: e.detail.A
       });
     },
-    deletehelpQuestion: function(e) {
-      this.arrayDelete('help', e.detail.helpQuestion); //TODO e.detail.??
+    deletecardsQuestion: function(e) {
+      this.arrayDelete('cards', e.detail.cardsQuestion); //TODO e.detail.??
     },
     toggleView: function() {
       if (this.edit) this.admin = !this.admin;
