@@ -1,6 +1,6 @@
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../paper-input/paper-textarea.html">
+<link rel="import" href="../paper-input/paper-input.html">
 <!-- 
 `<cards-input on-add-badge="addcards"></cards-input>`
 -->
@@ -8,9 +8,11 @@
   <template>
     <paper-button on-tap="add">Add</paper-button>
     <paper-dialog>
-      Card:
-      <paper-textarea value="{{cardsQ::change}}" label="Question"></paper-textarea>
-      <paper-textarea value="{{cardsA::change}}" label="Answer"></paper-textarea>
+      <paper-input value="{{image::change}}" label="Image"></paper-input>
+      <paper-input value="{{title::change}}" label="Title"></paper-input>
+      <paper-input value="{{type::change}}" label="Type"></paper-input>
+      <paper-input value="{{url::change}}" label="URL"></paper-input>
+      <paper-input value="{{value::change}}" label="Value"></paper-input>
       <div class="buttons">
         <paper-button dialog-confirm on-tap="_add">Add</paper-button>
         <paper-button dialog-dismiss>Cancel</paper-button>
@@ -30,11 +32,19 @@
     _add: function() {
       if (this.cardsQ) {
         this.fire('add-cards', {
-          Q: this.cardsQ,
-          A: this.cardsA
+          image: this.image,
+          title: this.title,
+          type: this.type,
+          url: this.url,
+          value: this.value
         });
-        this.cardsQ = null;
-        this.cardsA = null;
+        
+        this.image = null;
+        this.title = null;
+        this.type = null;
+        this.url = null;
+        this.value = null;
+        
         this.$$('paper-dialog').close();
       }
     },
