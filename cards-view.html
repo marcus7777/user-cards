@@ -11,7 +11,6 @@
     <mediator-data id="c" as-array="{{cards}}" location="{{location}}" folder="[[folder]]" default-folder="{{defaultFolder}}"></mediator-data>
     <cards-list edit="[[edit]]" edit-default="[[editDefault]]" cards="{{cards}}" on-delete-cards="deletecardsQuestion"></cards-list>
     <template is="dom-if" if="{{editDefault}}">
-      Add:
       <cards-input on-add-cards="addcardsQuestion"></cards-input>
     </template>
   </template>
@@ -26,8 +25,11 @@
     },
     addcardsQuestion: function(e) {
       this.$.c.push({
-        question: e.detail.Q,
-        answer: e.detail.A
+        image: e.detail.image,
+        title: e.detail.title,
+        type: e.detail.type,
+        url: e.detail.url,
+        value: e.detail.value
       });
     },
     deletecardsQuestion: function(e) {
