@@ -16,14 +16,14 @@
     </template>
     <template is="dom-if" if="{{!edit}}">
       <paper-material style="background:#fff;padding:20px;margin:5px;max-width:250px">
-					<div class="cardcontent">
-						<paper-ripple></paper-ripple>
-						<div class="body1" style="float: left;width:150px">
-							<h3>[[cards.value]]</h3>
-							<span>[[cards.title]]</span>
-						</div>
-						<iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
+				<div>
+					<paper-ripple></paper-ripple>
+					<div class="body1" style="float: left;width:150px">
+						<h3>[[cards.value]]</h3>
+						<span>[[cards.title]]</span>
 					</div>
+					<iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
+				</div>
       </paper-material>
     </template>
   </template>
