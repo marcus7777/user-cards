@@ -6,12 +6,19 @@
 -->
 <dom-module id="cards-list">
   <template>
-    <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
-    <sortable-list style="display: inline-block">
-      <template is="dom-repeat" items="{{cards}}" filter="{{filterCards(output)}}>
+    <template is="dom-if" if="{{!edit}}">
+      <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
+      <template is="dom-repeat" items="{{output}}">
         <div><cards-item index="[[index]]" edit="[[edit]]" cards="{{item}}"></cards-item></div>
       </template>
-    </sortable-list>
+    </template>
+    <template is="dom-if" if="{{edit}}">
+      <sortable-list style="display: inline-block">
+        <template is="dom-repeat" items="{{cards}}">
+          <div><cards-item index="[[index]]" edit="[[edit]]" cards="{{item}}"></cards-item></div>
+        </template>
+      </sortable-list>
+    </template>
   </template>
 </dom-module>
 <script>
