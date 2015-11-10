@@ -1,0 +1,23 @@
+<link rel="import" href="cards-item.html">
+<link rel="import" href="../sortable-list/sortable-list.html">
+<!--
+`<cards-list cards="{{cards}}" on-delete-cards="deletecards"></cards-list>`
+-->
+<dom-module id="cards-list">
+  <template>
+    <sortable-list style="display: inline-block">
+      <template is="dom-repeat" items="{{cards}}">
+        <div><cards-item index="[[index]]" edit="[[edit]]" cards="{{item}}"></cards-item></div>
+      </template>
+    </sortable-list>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: 'cards-list',
+    properties: {
+      edit:{type: Boolean, value: false},
+      cards:{notify:true}
+    }
+  });
+</script>

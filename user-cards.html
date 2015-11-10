@@ -1,0 +1,39 @@
+<link rel="import" href="cards-view.html">
+<!--
+`<user-cards answer edit edit-default folder="marcus7777"></user-cards>` cards for users 
+@demo demo.html
+-->
+
+<dom-module id="user-cards">
+  <template>
+    <style>
+      paper-dialog  > * {
+        padding: 0 2px;
+      }
+    </style>
+    <cards-view location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
+    <template is="dom-if" if="{{editDefault}}">
+      <h3>Edit Default Set:</h3>
+      <user-cards edit location="[[location]]" folder="[[defaultFolder]]"></user-cards>
+    </template>
+  </template>
+</dom-module>
+<script>
+  Polymer({
+    is: "user-cards",
+    properties: {
+      folder: String,
+      defaultFolder: {type:String, value:"default"},
+      edit: Boolean,
+      editDefault: Boolean,
+      cardsFolder: {computed:"getcardsFolder(folder)"},
+      cardsDefaultFolder: {computed:"getcardsDefaultFolder(defaultFolder)"}
+    },
+    getcardsFolder: function(folder) {
+      return folder+"/cards"
+    },
+    getcardsDefaultFolder: function(defaultFolder) {
+      return defaultFolder+"/cards"
+    }
+  });
+</script>
