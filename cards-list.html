@@ -6,13 +6,13 @@
 -->
 <dom-module id="cards-list">
   <template>
-    <template is="dom-if" if="{{!editCards}}">
+    <template is="dom-if" if="{{!edit}}">
       <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
       <template is="dom-repeat" items="{{output}}">
         <cards-item cards="{{item}}"></cards-item>
       </template>
     </template>
-    <template is="dom-if" if="{{editCards}}">
+    <template is="dom-if" if="{{edit}}">
       <sortable-list style="display: inline-block">
         <template is="dom-repeat" items="{{cards}}">
           <div>
@@ -27,7 +27,7 @@
   Polymer({
     is: 'cards-list',
     properties: {
-      editCards:{type: Boolean, value: false},
+      edit:{type: Boolean, value: false},
       cards:{notify:true}
     }
   });
