@@ -23,8 +23,9 @@
             <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
             <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
             <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+            <div class="buttons"><paper-button dialog-dismiss>done</paper-button></div>
           </paper-dialog>
-          <div on-tap="_edit">=</div>
+          <paper-button on-tap="_edit">=</paper-button>
         </template>
       </div>
     </paper-material>
