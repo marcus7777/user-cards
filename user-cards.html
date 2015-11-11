@@ -11,7 +11,9 @@
         padding: 0 2px;
       }
     </style>
-    <cards-view edit="{{edit}}" location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
+    <template is="dom-if" if="{{!editDefault}}">
+      <cards-view edit="{{edit}}" location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
+    </template>
     <template is="dom-if" if="{{editDefault}}">
       <h3>Edit Default Set:</h3>
       <user-cards edit="true" location="[[location]]" folder="[[defaultFolder]]"></user-cards>
@@ -24,8 +26,8 @@
     properties: {
       folder: String,
       defaultFolder: {type:String, value:"default"},
-      edit: Boolean,
-      editDefault: Boolean,
+      edit: {type:Boolean, value: true},
+      editDefault: {type:Boolean, value: true},
       cardsFolder: {computed:"getcardsFolder(folder)"},
       cardsDefaultFolder: {computed:"getcardsDefaultFolder(defaultFolder)"}
     },
