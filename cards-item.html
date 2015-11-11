@@ -8,31 +8,31 @@
 -->
 <dom-module id="cards-item">
   <template>
-    <paper-material style="background:#fff;padding:20px;margin:5px;max-width:250px">
-      <div>
-        <a href="[[item.url]]" title="[[item.value]]">
+    <a href="[[cards.url]]" title="[[cards.value]]">
+      <paper-material style="background:#fff;padding:20px;margin:5px;max-width:250px">
+        <div>
           <paper-ripple></paper-ripple>
           <div class="body1" style="float: left;width:150px">
             <h3>[[cards.value]]</h3>
             <span>[[cards.title]]</span>
           </div>
           <iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
-        </a>
-        <template is="dom-if" if="{{edit}}">
-          <paper-dialog>
-            <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
-            <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
-            <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
-            <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
-            <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
-            <div class="buttons">
-              <paper-button dialog-dismiss>done</paper-button>
-            </div>
-          </paper-dialog>
-          <button on-tap="_edit">=</button>
-        </template>
-      </div>
-    </paper-material>
+        </div>
+      </paper-material>
+    </a>
+    <template is="dom-if" if="{{edit}}">
+      <paper-dialog>
+        <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
+        <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
+        <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
+        <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
+        <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+        <div class="buttons">
+          <paper-button dialog-dismiss>done</paper-button>
+        </div>
+      </paper-dialog>
+      <button on-tap="_edit">=</button>
+    </template>
   </template>
 </dom-module>
 <script>
