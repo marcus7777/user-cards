@@ -11,7 +11,7 @@
     <mediator-data id="c" as-array="{{cards}}" location="{{location}}" folder="[[folder]]" default-folder="{{defaultFolder}}"></mediator-data>
     <cards-list editCards="{{edit}}" cards="{{cards}}" on-delete-cards="deletecardsQuestion"></cards-list>
     <template is="dom-if" if="{{edit}}">
-      <cards-input edit="true" on-add-cards="addcardsQuestion"></cards-input>
+      <cards-input edit on-add-cards="addcardsQuestion"></cards-input>
     </template>
   </template>
 </dom-module>
