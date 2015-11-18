@@ -27,7 +27,7 @@
             <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
             <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
             <div class="buttons">
-              <paper-button dialog-dismiss style="background:red;">Delete</paper-button>
+              <paper-button dialog-dismiss on-tap="_onDelete" style="background:red;">Delete</paper-button>
               <paper-button dialog-dismiss>done</paper-button>
             </div>
           </paper-dialog>
