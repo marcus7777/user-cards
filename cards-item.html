@@ -41,7 +41,7 @@
   Polymer({
     is: 'cards-item',
     _onDelete: function() {
-      this.fire('delete-cards-question', {cards: this.cards});
+      this.fire('delete-card', {cards: this.cards});
     },
     properties: {
       edit:{type: Boolean, value: false},
