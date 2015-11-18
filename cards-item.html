@@ -18,21 +18,21 @@
           </div>
           <iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
         </div>
+        <template is="dom-if" if="{{edit}}">
+          <paper-dialog>
+            <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
+            <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
+            <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
+            <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
+            <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+            <div class="buttons">
+              <paper-button dialog-dismiss>done</paper-button>
+            </div>
+          </paper-dialog>
+          <button on-tap="_edit">✏</button>
+        </template>
       </paper-material>
     </a>
-    <template is="dom-if" if="{{edit}}">
-      <paper-dialog>
-        <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
-        <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
-        <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
-        <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
-        <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
-        <div class="buttons">
-          <paper-button dialog-dismiss>done</paper-button>
-        </div>
-      </paper-dialog>
-      <button on-tap="_edit">✏</button>
-    </template>
   </template>
 </dom-module>
 <script>
