@@ -20,15 +20,15 @@
           </div>
         </a>
         <template is="dom-if" if="{{edit}}">
-          <paper-dialog>
+          <paper-dialog modal style="width: 400px;">
             <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
             <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
             <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
             <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
             <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
             <div class="buttons">
-              <paper-button dialog-dismiss on-tap="_onDelete" style="background:red">Delete</paper-button>
-              <paper-button dialog-dismiss>done</paper-button>
+              <paper-button dialog-dismiss on-tap="_onDelete" style="background: #FF5722;color: #FFF;">Delete</paper-button>
+              <paper-button dialog-dismiss style="color: #333">done</paper-button>
             </div>
           </paper-dialog>
           <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0"><iron-icon icon="create"></iron-icon></paper-button>
