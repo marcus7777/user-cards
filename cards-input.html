@@ -6,7 +6,8 @@
 -->
 <dom-module id="cards-input">
   <template>
-    <paper-button on-tap="add">Add</paper-button>
+  <!-- This is the button that Adds a card -->
+    <paper-button on-tap="add" style="background: #FF5722;color: #FFF; margin: 20px;">Add</paper-button>
     <paper-dialog>
       <paper-input value="{{image::change}}" label="Image"></paper-input>
       <paper-input value="{{title::change}}" label="Title"></paper-input>
