@@ -12,10 +12,6 @@
       }
     </style>
     <template is="dom-if" if="{{!editDefault}}">
-       <div id="tithere" style="padding-bottom: 50px; margin-bottom: 50px;">
-        <h2 style="float: left; width:200px; padding:0;">Cards</h2>
-        <paper-button raised="1" style="float:right; text-decoration: none; margin: 10px;"><a href="https://hi9.uk/#!/admin" style="text-decoration: none;">BACK</a></paper-button>
-      </div>
       <cards-view edit="{{edit}}" location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
     </template>
     <template is="dom-if" if="{{editDefault}}">
