@@ -8,32 +8,36 @@
 -->
 <dom-module id="cards-item">
   <template>
-      <paper-material style="height:100px;background:#fff;padding:20px;margin:5px;max-width:250px">
-        <a href="[[cards.url]]" title="[[cards.value]]">
-          <div>
-            <paper-ripple></paper-ripple>
-            <div class="body1" style="float: left;width:150px">
-              <h3>[[cards.value]]</h3>
-              <span>[[cards.title]]</span>
-            </div>
+    <paper-material style="height:200px;background:#fff;padding:10px;margin:5px;max-width:150px">
+      <a href="[[cards.url]]" title="[[cards.value]]">
+        <div>
+          <paper-ripple></paper-ripple>
+          <div class="body1" style="float: left;width:150px">
+            <h3>[[cards.value]]</h3>
+            <span>[[cards.title]]</span>
+          </div>
+          <div id="pic" style="margin-left: 25px; margin-right: 25px; position: absolute; bottom: 0;">
             <iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
           </div>
-        </a>
-        <template is="dom-if" if="{{edit}}">
-          <paper-dialog modal style="width: 400px;">
-            <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
-            <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
-            <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
-            <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
-            <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
-            <div class="buttons">
-              <paper-button dialog-dismiss on-tap="_onDelete" style="background: #FF5722;color: #FFF;">Delete</paper-button>
-              <paper-button dialog-dismiss style="color: #333">done</paper-button>
-            </div>
-          </paper-dialog>
-          <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0"><iron-icon icon="create"></iron-icon></paper-button>
-        </template>
-      </paper-material>
+        </div>
+      </a>
+      <template is="dom-if" if="{{edit}}">
+        <paper-dialog modal style="width: 400px;">
+          <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
+          <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
+          <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
+          <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
+          <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+          <div class="buttons">
+            <paper-button dialog-dismiss on-tap="_onDelete" style="background: #FF5722;color: #FFF;">Delete</paper-button>
+            <paper-button dialog-dismiss style="color: #333">done</paper-button>
+          </div>
+        </paper-dialog>
+        <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0">
+          <iron-icon icon="create"></iron-icon>
+        </paper-button>
+      </template>
+    </paper-material>
 
   </template>
 </dom-module>
@@ -41,12 +45,19 @@
   Polymer({
     is: 'cards-item',
     _onDelete: function() {
-      this.fire('delete-card', {cards: this.cards});
+      this.fire('delete-card', {
+        cards: this.cards
+      });
     },
     properties: {
-      edit:{type: Boolean, value: false},
-      cards: {notify: true}
-    }, 
+      edit: {
+        type: Boolean,
+        value: false
+      },
+      cards: {
+        notify: true
+      }
+    },
     _edit: function() {
       this.$$('paper-dialog').open()
     }
