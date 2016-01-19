@@ -8,13 +8,15 @@
 -->
 <dom-module id="cards-item">
   <template>
-    <paper-material style="height:200px;background:#fff;padding:10px;margin:5px;max-width:150px">
+    <paper-material style="height:200px;background:#fff;margin:5px;max-width:150px">
       <a href="[[cards.url]]" title="[[cards.value]]">
         <div>
           <paper-ripple></paper-ripple>
-          <div class="body1" style="float: left;width:150px">
-            <h3>[[cards.value]]</h3>
-            <span>[[cards.title]]</span>
+          <div id="cardtop" style="background-color: orange; height: 100px; padding: 0 5px 0 5px;">
+            <div class="body1" style="float: left;width:150px">
+              <h3 style="margin: 5px 0 5px 0; color: #FFF;">[[cards.value]]</h3>
+              <span style="color: #FFF;">[[cards.title]]</span>
+            </div>
           </div>
           <div id="pic" style="margin-left: 25px; margin-right: 25px; position: absolute; bottom: 0;">
             <iron-image sizing="contain" src="[[cards.image]]" style="float: right;width:100px; height:100px;"></iron-image>
