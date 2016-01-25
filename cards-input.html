@@ -1,13 +1,14 @@
 <link rel="import" href="../paper-dialog/paper-dialog.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-input/paper-input.html">
-<!-- 
+<link rel="import" href="../paper-fab/paper-fab.html">
+<!--
 `<cards-input on-add-badge="addcards"></cards-input>`
 -->
 <dom-module id="cards-input">
   <template>
   <!-- This is the button that Adds a card -->
-    <paper-button on-tap="add" style="background: #FF5722;color: #FFF; margin: 20px;">Add</paper-button>
+  <paper-fab on-tap="add" icon="add" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;"></paper-fab>
     <paper-dialog>
       <paper-input value="{{image::change}}" label="Image"></paper-input>
       <paper-input value="{{title::change}}" label="Title"></paper-input>
@@ -39,13 +40,13 @@
           url: this.url,
           value: this.value
         });
-        
+
         this.image = null;
         this.title = null;
         this.type = null;
         this.url = null;
         this.value = null;
-        
+
         this.$$('paper-dialog').close();
       }
     },
