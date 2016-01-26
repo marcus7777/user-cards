@@ -6,7 +6,7 @@
 -->
 <dom-module id="cards-list">
   <template>
-    <template is="dom-if" if="{{!edit}}">
+    <template is="dom-if" if="{{!edit}}" sort="sortItems">
       <paper-filter by="type" data="{{cards}}" output="{{output}}"></paper-filter>
       <template is="dom-repeat" items="{{output}}">
         <cards-item style="display: inline-block" cards="{{item}}"></cards-item>
@@ -14,7 +14,7 @@
     </template>
     <template is="dom-if" if="{{edit}}">
       <sortable-list>
-        <template is="dom-repeat" items="{{cards}}">
+        <template is="dom-repeat" items="{{cards}}" sort="sortItems">
           <div style="display: inline-block">
             <cards-item index="[[index]]" edit cards="{{item}}"></cards-item>
           </div>
@@ -29,6 +29,34 @@
     properties: {
       edit:{type: Boolean, value: false},
       cards:{notify:true}
+    },
+    sortItems: function(a, b){
+      if (a.order && b.order) {
+        return naturalSorter (a.order, b.order)
+      } else if (a.title && b.title) {
+        return naturalSorter (a.title, b.title)
+      } else if (a.value && b.value) {
+        return naturalSorter (a.value, b.value)
+      }
+      function naturalSorter(as, bs){
+        var a, b, a1, b1, i= 0, n, L,
+        rx=/(\.\d+)|(\d+(\.\d+)?)|([^\d.]+)|(\.\D+)|(\.$)/g;
+        if(as=== bs) return 0;
+        a= as.toLowerCase().match(rx);
+        b= bs.toLowerCase().match(rx);
+        L= a.length;
+        while(i<L){
+          if(!b[i]) return 1;
+          a1= a[i],
+          b1= b[i++];
+          if(a1!== b1){
+            n= a1-b1;
+            if(!isNaN(n)) return n;
+            return a1>b1? 1:-1;
+          }
+        }
+        return b[i]? -1:0;
+      }
     }
   });
 </script>
