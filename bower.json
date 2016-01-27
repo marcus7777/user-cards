@@ -8,8 +8,8 @@
   ],
   "dependencies": {
     "polymer": "*",
-    "mediator-data":"marcus7777/mediator-data",
+    "mediator-data":"marcus7777/mediator-data#master",
     "paper-material":"PolymerElements/paper-material",
-    "paper-filter":"HackITtoday/paper-filter"
+    "paper-filter":"HackITtoday/paper-filter#master"
   }
 }
