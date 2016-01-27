@@ -8,9 +8,11 @@
 -->
 <dom-module id="cards-input">
   <template>
-    paper-fab::shadow > paper-material:hover {
-      @apply(--shadow-elevation-8dp);
-    }
+    <style>
+      paper-fab::shadow > paper-material:hover {
+        @apply(--shadow-elevation-8dp);
+      }
+    </style>
     <paper-fab on-tap="add" icon="add" elevation="4" style="background:red;color:#FFF;position:fixed;right:30px;bottom: 30px"></paper-fab>
     <paper-dialog>
       <paper-input value="{{image::change}}" label="Image"></paper-input>
