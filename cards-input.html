@@ -28,30 +28,26 @@
     // Listen for ENTER key
     _checkAdd: function(e) {
       if (e.keyCode === 13) {
-        this._add();
+        this._add()
       }
     },
     _add: function() {
-      if (this.cardsQ) {
-        this.fire('add-cards', {
-          image: this.image,
-          title: this.title,
-          type: this.type,
-          url: this.url,
-          value: this.value
-        });
-
-        this.image = null;
-        this.title = null;
-        this.type = null;
-        this.url = null;
-        this.value = null;
-
-        this.$$('paper-dialog').close();
-      }
+      this.fire('add-cards', {
+        image: this.image,
+        title: this.title,
+        type: this.type,
+        url: this.url,
+        value: this.value
+      })
+      this.image = null
+      this.title = null
+      this.type = null
+      this.url = null
+      this.value = null
+      this.$$('paper-dialog').close()
     },
     add: function() {
-      this.$$('paper-dialog').open();
+      this.$$('paper-dialog').open()
     }
   });
 </script>
