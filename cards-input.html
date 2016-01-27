@@ -8,8 +8,10 @@
 -->
 <dom-module id="cards-input">
   <template>
-  <!-- This is the button that Adds a card -->
-  <paper-fab on-tap="add" icon="add" elevation="4" style="background: red;color: #FFF; position: fixed; right: 30px; bottom: 30px;"></paper-fab>
+    paper-fab::shadow > paper-material:hover {
+      @apply(--shadow-elevation-8dp);
+    }
+    <paper-fab on-tap="add" icon="add" elevation="4" style="background:red;color:#FFF;position:fixed;right:30px;bottom: 30px"></paper-fab>
     <paper-dialog>
       <paper-input value="{{image::change}}" label="Image"></paper-input>
       <paper-input value="{{title::change}}" label="Title"></paper-input>
