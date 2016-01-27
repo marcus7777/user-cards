@@ -11,7 +11,7 @@
     <mediator-data id="c" as-array="{{cards}}" location="{{location}}" folder="{{folder}}" default-folder="{{defaultFolder}}"></mediator-data>
     <cards-list edit="{{edit}}" cards="{{cards}}" on-delete-card="deleteCard"></cards-list>
     <template is="dom-if" if="{{edit}}">
-      <cards-input edit on-add-cards="addcardsQuestion"></cards-input>
+      <cards-input edit on-add-cards="addCards"></cards-input>
     </template>
   </template>
 </dom-module>
@@ -23,7 +23,7 @@
       edit: {type: Boolean, value: false},
       editDefault: Boolean
     },
-    addcardsQuestion: function(e) {
+    addCards: function(e) {
       this.$.c.push({
         image: e.detail.image,
         title: e.detail.title,
