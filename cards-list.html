@@ -16,7 +16,7 @@
     </template>
     <template is="dom-if" if="{{edit}}">
       <sortable-list>
-        <template is="dom-repeat" items="{{cards}}" sort="sortItems">
+        <template is="dom-repeat" items="{{cards}}">
           <div style="display:inline-block">
             <cards-item index="[[index]]" edit cards="{{item}}"></cards-item>
           </div>
