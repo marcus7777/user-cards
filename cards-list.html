@@ -7,8 +7,8 @@
 <dom-module id="cards-list">
   <template>
     <template is="dom-if" if="{{!edit}}" sort="sortItems">
-      <paper-filter by="type" data="{{cards}}" output="{{output}}" style="margin: 20px; padding: 5px;"></paper-filter>
-      <div id="cardBlock" style="width: 100%;margin: 20px; padding: 5px;">
+      <paper-filter by="type" data="{{cards}}" output="{{output}}" style="margin: 10px; padding: 5px;"></paper-filter>
+      <div id="cardBlock" style="width: 100%;margin: 10px; padding: 5px;">
       <template is="dom-repeat" items="{{output}}">
           <cards-item style="display:inline-block;" cards="{{item}}"></cards-item>
       </template>
