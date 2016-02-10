@@ -15,7 +15,7 @@
     </div>
     </template>
     <template is="dom-if" if="{{edit}}">
-      <sortable-list>
+      <sortable-list on-sort-change="reorder(cards)">
         <template is="dom-repeat" items="{{cards}}">
           <div style="display:inline-block">
             <cards-item index="[[index]]" edit cards="{{item}}"></cards-item>
@@ -31,6 +31,9 @@
     properties: {
       edit:{type: Boolean, value: false},
       cards:{notify:true}
+    },
+    reorder: function(a){
+      debugger
     },
     sortItems: function(a, b){
       if (a.order && b.order) {
