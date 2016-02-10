@@ -13,10 +13,10 @@
       }
     </style>
     <template is="dom-if" if="{{!editDefault}}">
-      <cards-view edit="{{edit}}" location="[[location]]" folder="[[cardsFolder]]" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
+      <cards-view edit="{{edit}}" location="{{location}}" folder="{{cardsFolder}}" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
     </template>
     <template is="dom-if" if="{{editDefault}}">
-      <user-cards edit location="[[location]]" folder="[[defaultFolder]]"></user-cards>
+      <user-cards edit location="{{location}}" folder="{{defaultFolder}}"></user-cards>
     </template>
   </template>
 </dom-module>
