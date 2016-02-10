@@ -33,12 +33,15 @@
       cards:{notify:true}
     },
     reorder: function(a){
-      this.cards = a.detail.forEach(addOrderArrayElements)
+      var output = []
+      a.detail.forEach(addOrderArrayElements)
       function addOrderArrayElements(element, index, array) {
-        if (typeof element === "Object"){
+        if (typeof element === "object"){
           element.order = index
+          output.push(element)
         }
       }
+      this.set("cards",output)
     },
     sortItems: function(a, b){
       if (a.order && b.order) {
