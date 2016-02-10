@@ -31,7 +31,7 @@
     properties: {
       edit:{type: Boolean, value: false},
       cards:{notify:true},
-      toSortCards {computed:"getToSortCards(cards)"}
+      toSortCards: {computed:"getToSortCards(cards)"}
     },
     getToSortCards: function(cards) {
       return cards.sort(this.sortItems)
