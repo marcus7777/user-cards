@@ -7,7 +7,7 @@
 
 <dom-module id="cards-view">
   <template>
-    <mediator-data id="c" as-array="{{cards}}" location="{{location}}" folder="{{folder}}" default-folder="{{defaultFolder}}"></mediator-data>
+    <mediator-data id="c" as-array="{{cards}}" get-until-data location="{{location}}" folder="{{folder}}" default-folder="{{defaultFolder}}"></mediator-data>
     <cards-list edit="{{edit}}" cards="{{cards}}" on-delete-card="deleteCard"></cards-list>
     <template is="dom-if" if="{{edit}}">
       <cards-input edit on-add-cards="addCards"></cards-input>
