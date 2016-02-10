@@ -41,7 +41,7 @@
       a.detail.forEach(addOrderArrayElements)
       function addOrderArrayElements(element, index, array) {
         if (typeof element === "object"){
-          element.order = index
+          element.order = +index + 1
           output.push(element)
         }
       }
