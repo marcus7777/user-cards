@@ -9,6 +9,9 @@
 -->
 <dom-module id="cards-item">
   <template>
+    <template is="dom-if" if="{{!edit}}">
+      <a href="[[cards.url]]" title="[[cards.value]]">
+    </template>
     <paper-material style="height:200px;background:#fff;margin:5px;max-width:150px">
       <a href="[[cards.url]]" title="[[cards.value]]">
         <div>
@@ -42,7 +45,9 @@
         </paper-button>
       </template>
     </paper-material>
-
+    <template is="dom-if" if="{{!edit}}">
+      </a>
+    </template>
   </template>
 </dom-module>
 <script>
