@@ -35,7 +35,7 @@
     reorder: function(a){
       this.cards = a.detail.forEach(addOrderArrayElements)
       function addOrderArrayElements(element, index, array) {
-        if (typeOf element === "Object"){
+        if (typeof element === "Object"){
           element.order = index
         }
       }
