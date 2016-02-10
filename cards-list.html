@@ -33,7 +33,12 @@
       cards:{notify:true}
     },
     reorder: function(a){
-      debugger
+      this.cards = a.detail.forEach(addOrderArrayElements)
+      function addOrderArrayElements(element, index, array) {
+        if (typeOf element === "Object"){
+          element.order = index
+        }
+      }
     },
     sortItems: function(a, b){
       if (a.order && b.order) {
