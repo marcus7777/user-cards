@@ -10,7 +10,7 @@
       <paper-filter by="type" data="{{cards}}" output="{{output}}" style="margin: 10px; padding: 5px;"></paper-filter>
       <div id="cardBlock" style="width: 100%;margin: 10px; padding: 5px;">
       <template is="dom-repeat" items="{{output}}">
-          <cards-item style="display:inline-block;" cards="{{item}}"></cards-item>
+        <cards-item style="display:inline-block;" cards="{{item}}"></cards-item>
       </template>
     </div>
     </template>
@@ -49,7 +49,7 @@
     },
     sortItems: function(a, b){
       if (a.order && b.order) {
-        return naturalSorter (a.order, b.order)
+        return +a.order > +b.order
       } else if (a.title && b.title) {
         return naturalSorter (a.title, b.title)
       } else if (a.value && b.value) {
