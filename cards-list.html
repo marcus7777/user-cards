@@ -15,7 +15,7 @@
     </div>
     </template>
     <template is="dom-if" if="{{edit}}">
-      <sortable-list content="{{cards}}" on-sort-change="reorder">
+      <sortable-list content="{{toSortCards}}" on-sort-change="reorder">
         <template is="dom-repeat" items="{{cards}}" sort="sortItems">
           <div style="display:inline-block">
             <cards-item index="[[index]]" edit cards="{{item}}"></cards-item>
@@ -30,7 +30,11 @@
     is: 'cards-list',
     properties: {
       edit:{type: Boolean, value: false},
-      cards:{notify:true}
+      cards:{notify:true},
+      toSortCards {computed:"getToSortCards(cards)"}
+    },
+    getToSortCards: function(cards) {
+      return cards.sort(this.sortItems)
     },
     reorder: function(a){
       var output = []
