@@ -6,11 +6,11 @@
     <link rel="import" href="user-cards.html">
   </head>
   <body>
-    <h3>user-cards all</h3>
-    <user-cards edit edit-default answer folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
-    <h3>user-cards edit-default</h3>
-    <user-cards edit-default folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
-    <h3>user-cards</h3>
-    <user-cards folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
+    <template is="dom-bind">
+      <h3>user-cards</h3>
+      <user-cards edit="{{edit}}" edit-default="{{editDefault}}" answer folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
+      Edit <paper-toggle-button checked="{{edit}}"></paper-toggle-button>
+      Edit default <paper-toggle-button checked="{{editDefault}}"></paper-toggle-button>
+    </template>
   </body>
 </html>
