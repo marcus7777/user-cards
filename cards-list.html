@@ -15,10 +15,10 @@
     </div>
     </template>
     <template is="dom-if" if="{{edit}}">
-      <sortable-list content="[[toSortCards]]" output="{{sortedCards}}" on-sort-change="reorder">
+      <sortable-list content="{{toSortCards}}" output="{{sortedCards}}" on-sort-change="reorder">
         <template is="dom-repeat" items="{{sortedCards}}">
           <div style="display:inline-block">
-            <cards-item index="[[index]]" edit cards="{{item}}"></cards-item>
+            <cards-item index="{{index}}" edit cards="{{item}}"></cards-item>
           </div>
         </template>
       </sortable-list>
