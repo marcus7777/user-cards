@@ -10,6 +10,7 @@
     "polymer": "*",
     "mediator-data":"marcus7777/mediator-data#master",
     "paper-material":"PolymerElements/paper-material",
+    "card-deck":"marcus7777/card-deck",
     "paper-filter":"HackITtoday/paper-filter#master"
   }
 }
