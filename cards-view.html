@@ -25,8 +25,11 @@
     addCards: function(e) {
       this.$.c.push({
         image: e.detail.image,
+        position: e.detail.position,
+        alerts: e.detail.alerts,
         title: e.detail.title,
         type: e.detail.type,
+        blob: e.detail.blob,
         url: e.detail.url,
         value: e.detail.value
       });
