@@ -9,56 +9,59 @@
 -->
 <dom-module id="cards-item">
   <template>
-   <template is="dom-if" if="{{!isDeck}}">
-      <paper-material style="height:200px;background:#fff;margin:5px;max-width:150px">
-        <a href="[[cards.url]]" title="[[cards.value]]">
+    <paper-material style="height:200px;background:#fff;margin:5px;max-width:150px">
+     <template is="dom-if" if="{{!isDeck}}">
+        <a href="{{cards.url}}" title="{{cards.value}}">
           <div>
             <paper-ripple></paper-ripple>
             <div id="cardtop" style="height:100px;padding:0 5px 0 5px;">
               <div class="body1" style="float:left;width:150px">
-                <h3 style="margin: 7px 0 5px 0; color: #333;">[[cards.value]]</h3>
-                <span style="color: #333;">[[cards.title]]</span>
-                <span style="float:right; position:absolute; top: 90px; right: 0px; border-width: 1px; border-top-style: solid; border-left-style: solid; border-bottom-style: solid; padding: 2px; font-size: 10px; border-color: #333; color: #333;">[[cards.type]]</span>
+                <h3 style="margin: 7px 0 5px 0; color: #333;">{{cards.value}}</h3>
+                <span style="color: #333;">{{cards.title}}</span>
+                <span style="float:right; position:absolute; top: 90px; right: 0px; border-width: 1px; border-top-style: solid; border-left-style: solid; border-bottom-style: solid; padding: 2px; font-size: 10px; border-color: #333; color: #333;">{{cards.type}}</span>
               </div>
             </div>
             <div id="pic" style="margin-left: 40px; position: absolute; bottom: 5px;">
-              <iron-image sizing="contain" src="[[cards.image]]" style="border-radius: 50%; border-style: solid; border-color: #d1d1e0; border-width: 1px; height: 70px; width: 70px;"></iron-image>
+              <iron-image sizing="contain" src="{{cards.image}}" style="border-radius: 50%; border-style: solid; border-color: #d1d1e0; border-width: 1px; height: 70px; width: 70px;"></iron-image>
             </div>
           </div>
         </a>
-        <template is="dom-if" if="{{edit}}">
-          <paper-dialog modal style="width: 400px;">
-            <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
-            <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
-            <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
-            <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
-            <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
-            <div class="buttons">
-              <paper-button dialog-dismiss on-tap="_onDelete" style="background: #FF5722;color: #FFF;">Delete</paper-button>
-              <paper-button dialog-dismiss style="color: #333">done</paper-button>
-            </div>
-          </paper-dialog>
-          <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0">
-            <iron-icon icon="create"></iron-icon>
-          </paper-button>
-        </template>
-      </paper-material>
-    </template>
+      </template>
+      <template is="dom-if" if="{{edit}}">
+        <paper-dialog modal style="width: 400px;">
+          <paper-input value="{{cards.image::change}}" label="Image"></paper-input>
+          <paper-input value="{{cards.title::change}}" label="Title"></paper-input>
+          <paper-input value="{{cards.type::change}}" label="Type"></paper-input>
+          <paper-input value="{{cards.url::change}}" label="URL"></paper-input>
+          <paper-input value="{{cards.value::change}}" label="Value"></paper-input>
+          <div class="buttons">
+            <paper-button dialog-dismiss on-tap="_onDelete" style="background: #FF5722;color: #FFF;">Delete</paper-button>
+            <paper-button dialog-dismiss style="color: #333">done</paper-button>
+          </div>
+        </paper-dialog>
+        <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0">
+          <iron-icon icon="create"></iron-icon>
+        </paper-button>
+      </template>
+    </paper-material>
     <template is="dom-if" if="{{isDeck}}">
       <link rel="import" href="../card-deck/card-deck.html">
       <card-deck>
+        <a href="{{cards.url}}" title="{{cards.value}}">
           <div>
             <paper-ripple></paper-ripple>
             <div id="cardtop" style="height:100px;padding:0 5px 0 5px;">
               <div class="body1" style="float:left;width:150px">
-                <h3 style="margin: 7px 0 5px 0; color: #333;">[[cards.value]]</h3>
+                <h3 style="margin: 7px 0 5px 0; color: #333;">{{cards.value}}</h3>
                 <span style="color: #333;">{{cards.title}}</span>
+                <span style="float:right; position:absolute; top: 90px; right: 0px; border-width: 1px; border-top-style: solid; border-left-style: solid; border-bottom-style: solid; padding: 2px; font-size: 10px; border-color: #333; color: #333;">{{cards.type}}</span>
               </div>
             </div>
             <div id="pic" style="margin-left: 40px; position: absolute; bottom: 5px;">
-              <iron-image sizing="contain" src="{{cards.image}}" style="border-radius:50%;border-style:solid;border-color:#d1d1e0;border-width:1px;height:70px;width:70px"></iron-image>
+              <iron-image sizing="contain" src="{{cards.image}}" style="border-radius: 50%; border-style: solid; border-color: #d1d1e0; border-width: 1px; height: 70px; width: 70px;"></iron-image>
             </div>
           </div>
+        </a>
       </card-deck>
     </template>
   </template>
