@@ -4,15 +4,70 @@
     <title>user-cards demo</title>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="user-cards.html">
+    <link rel="import" href="../fab-menu/fab-menu.html">
     <link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
   </head>
   <body>
     <template is="dom-bind">
       <h3>user-cards</h3>
       <user-cards selecting="{{selecting}}" edit="{{edit}}" edit-default="{{editDefault}}" folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
+      <fab-menu-play></fab-menu-play>
       Edit <paper-toggle-button checked="{{edit}}"></paper-toggle-button><br />
-      selecting <paper-toggle-button checked="{{selecting}}"></paper-toggle-button><br />
+      Selecting <paper-toggle-button checked="{{selecting}}"></paper-toggle-button><br />
       Edit default <paper-toggle-button checked="{{editDefault}}"></paper-toggle-button>
     </template>
   </body>
 </html>
+<!doctype html>
+<link rel="import" href="../icon-icons/iron-icons.html">
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icons/image-icons.html">
+<!--
+`<fab-menu-play></fab-menu-play>` This demonstrates of the fab menu
+@demo demo.html
+-->
+
+<dom-module id="fab-menu-play">
+  <template>
+    <fab-menu label="Add / Edit / Delete" on-delete="fabDelete" on-add="fabAdd" on-edit="fabEdit" icon="touch-app" back-label="Cancel" back-icon="subdirectory-arrow-left" menu="{{menu}}"></fab-menu>
+  </template>
+</dom-module>
+<script>
+Polymer({
+  is: "fab-menu-play",
+  properties: {
+    menu:{ 
+      value: [
+        {label:"Delete",icon:"delete",fire:{type:"delete"},
+          menu:[{
+            label:"Confirm Delete",
+            icon:"delete",
+            fire:{type:"delete",detail:"confirm"}
+          }]
+        },
+        {label:"Edit",icon:"create",fire:{type:"edit"}"menu":[
+          {label:"Finished Editing",icon:"done",fire:{type:"add",detail:"done"}}
+        ]},
+        {label:"Add","icon":"add","menu":[
+          {label:"Card",icon:"image:crop-portrait",fire:{type:"add",detail:"card"}},
+          {label:"Deck",icon:"content-copy",fire:{type:"add",detail:"deck"}}
+        ]}
+      ],
+      type: Array
+    }
+  },
+  fabAdd: function(e,d){
+    console.log("Add "+d)
+    return true
+  },
+  fabEdit: function(e){
+    console.log("edit")
+  },
+  fabDelete: function(e,d){
+    if (d) {
+      console.log(d)
+    }
+    console.log("delete")
+  }
+})
+</script>
