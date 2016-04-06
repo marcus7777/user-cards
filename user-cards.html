@@ -13,10 +13,10 @@
       }
     </style>
     <template is="dom-if" if="{{!editDefault}}">
-      <cards-view edit="{{edit}}" location="{{location}}" folder="{{cardsFolder}}" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
+      <cards-view selecting="{{selecting}}" edit="{{edit}}" location="{{location}}" folder="{{cardsFolder}}" default-folder="{{cardsDefaultFolder}}" edit-default="{{editDefault}}"></cards-view>
     </template>
     <template is="dom-if" if="{{editDefault}}">
-      <user-cards edit location="{{location}}" folder="{{defaultFolder}}"></user-cards>
+      <user-cards edit selecting="{{selecting}}" location="{{location}}" folder="{{defaultFolder}}"></user-cards>
     </template>
   </template>
 </dom-module>
@@ -28,6 +28,7 @@
       defaultFolder: {type:String, value:"default"},
       edit: {type:Boolean, value: false},
       editDefault: {type:Boolean, value: false},
+      selecting: {type:Boolean, value: false},
       cardsFolder: {computed:"getcardsFolder(folder)"},
       cardsDefaultFolder: {computed:"getcardsDefaultFolder(defaultFolder)"}
     },
