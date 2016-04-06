@@ -26,6 +26,11 @@
             </div>
           </div>
         </a>
+        <template is="dom-if" if="{{selecting}}">
+          <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0">
+            <iron-icon icon="check"></iron-icon>
+          </paper-button>
+        </template>
       </template>
       <template is="dom-if" if="{{edit}}">
         <paper-dialog modal style="width: 400px;">
@@ -84,6 +89,10 @@
       },
       isDeck: {
         computed: "checkIsDeck(cards)" 
+      },
+      selecting: {
+        type: Boolean,
+        value: false
       }
     },
     _edit: function() {
