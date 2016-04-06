@@ -27,9 +27,16 @@
           </div>
         </a>
         <template is="dom-if" if="{{selecting}}">
-          <paper-button on-tap="_edit" style="position:absolute;right:-20px;top:0">
-            <iron-icon icon="check"></iron-icon>
-          </paper-button>
+          <template is="dom-if" if="{{!selected}}">
+            <paper-button on-tap="_selecting" style="position:absolute;right:-20px;top:0">
+              <iron-icon icon="check"></iron-icon>
+            </paper-button>
+          </template>
+          <template is="dom-if" if="{{selected}}">
+            <paper-button on-tap="_selecting" style="color:red;position:absolute;right:-20px;top:0">
+              <iron-icon icon="check"></iron-icon>
+            </paper-button>
+          </template>
         </template>
       </template>
       <template is="dom-if" if="{{edit}}">
@@ -93,10 +100,17 @@
       selecting: {
         type: Boolean,
         value: false
+      },
+      selected: {
+        type: Boolean,
+        value: false
       }
     },
     _edit: function() {
       this.$$('paper-dialog').open()
+    },
+    _selecting: function() {
+      this.selected = !this.selected
     },
     checkIsDeck: function(card) {
       if (card.url.indexOf("deck:") === 0) {
