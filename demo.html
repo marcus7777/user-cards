@@ -11,7 +11,8 @@
     <template is="dom-bind">
       <h3>user-cards</h3>
       <user-cards selecting="{{selecting}}" edit="{{edit}}" edit-default="{{editDefault}}" folder="marcus7777" location="https://open-elements.firebaseio.com/all/"></user-cards>
-      <fab-menu-play></fab-menu-play>
+      <fab-menu-play edit="{{edit}}" selecting="{{selecting}}"></fab-menu-play>
+      <h1>demo settings</h1>
       Edit <paper-toggle-button checked="{{edit}}"></paper-toggle-button><br />
       Selecting <paper-toggle-button checked="{{selecting}}"></paper-toggle-button><br />
       Edit default <paper-toggle-button checked="{{editDefault}}"></paper-toggle-button>
@@ -36,18 +37,12 @@
 Polymer({
   is: "fab-menu-play",
   properties: {
+    edit: {notify: true},
+    selecting: {notify: true},
     menu:{ 
       value: [
-        {label:"Delete",icon:"delete",fire:{type:"delete"},
-          menu:[{
-            label:"Confirm Delete",
-            icon:"delete",
-            fire:{type:"delete",detail:"confirm"}
-          }]
-        },
-        {label:"Edit",icon:"create",fire:{type:"edit"},"menu":[
-          {label:"Finished Editing",icon:"done",fire:{type:"add",detail:"done"}}
-        ]},
+        {label:"Delete",icon:"delete",fire:{type:"delete"}},
+        {label:"Edit",icon:"create",fire:{type:"edit"}},
         {label:"Add","icon":"add","menu":[
           {label:"Card",icon:"image:crop-portrait",fire:{type:"add",detail:"card"}},
           {label:"Deck",icon:"content-copy",fire:{type:"add",detail:"deck"}}
@@ -62,8 +57,9 @@ Polymer({
   },
   fabEdit: function(e){
     console.log("edit")
+    this.edit = !this.edit
   },
-  fabDelete: function(e,d){
+  fabDelete: function(e, d){
     if (d) {
       console.log(d)
     }
